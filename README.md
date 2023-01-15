@@ -27,6 +27,7 @@ The program functions under certain assumptions
     [End states]
     ```
     Consider an example
+    
     ![Graph example](graph.png)
      ``` 
     -- DFA recognising words in {a,b}* with even amount of a's
