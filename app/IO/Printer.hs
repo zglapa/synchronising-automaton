@@ -1,8 +1,8 @@
-module Printer (
+module IO.Printer (
     printDFA
 ) where
 
-import DFA
+import DataStructures.DFA
 
 -- Print a DFA to the console
 printDFA :: (Eq a, Show a) => DFA a -> IO ()

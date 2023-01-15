@@ -1,11 +1,11 @@
-module FileReader (
+module IO.FileReader (
     readDFAFromFile
 ) where
 
 import System.IO
 import System.Environment
-import DFA
-import StringReader
+import DataStructures.DFA
+import IO.StringReader
 
 -- Read comment and ignore it
 readComment :: Handle -> IO ()

@@ -1,8 +1,8 @@
-module ExampleAutomata (
+module Examples.ExampleAutomata (
   dfa_even_a
 ) where
 
-import DFA
+import DataStructures.DFA
 
 -- Simple DFA that accepts the language {w in {a,b}* | w contains even number of a's}
 -- e.g. "abba" is accepted, "ababa" is not

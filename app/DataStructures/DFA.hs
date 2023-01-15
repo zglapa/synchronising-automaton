@@ -1,9 +1,9 @@
-module DFA (
+module DataStructures.DFA (
     State(..),
     DFA(..)
 ) where
 
-import Util
+import Util.Util
     
 -- DFA state type
 data State a = State { name :: a} deriving (Eq) 

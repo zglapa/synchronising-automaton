@@ -1,4 +1,4 @@
-module StringReader (
+module IO.StringReader (
     splitByCommas,
     splitBySpaces,
     stringToState,
@@ -9,7 +9,7 @@ module StringReader (
     readEndStates
 ) where
 
-import DFA
+import DataStructures.DFA
 
 -- Split string by spaces
 splitBySpaces :: String -> [String]
