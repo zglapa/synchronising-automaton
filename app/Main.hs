@@ -1,4 +1,8 @@
 module Main where
 
+import DFA
+import ExampleAutomata
+import Printer
+
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = printDFA dfa_even_a
