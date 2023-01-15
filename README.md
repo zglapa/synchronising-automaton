@@ -26,3 +26,18 @@ The program functions under certain assumptions
     [Start state]
     [End states]
     ```
+    Consider an example
+    ![Graph example](graph.png)
+     ``` 
+    -- DFA recognising words in {a,b}* with even amount of a's
+    1 2
+    a b
+    --
+    1 a 2
+    1 b 1
+    2 a 1
+    2 b 2
+    --
+    1
+    1
+    ```
