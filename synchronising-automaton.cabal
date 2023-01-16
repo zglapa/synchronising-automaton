@@ -91,6 +91,7 @@ Test-Suite test-algorithms
                         Algorithms.SynchronisingWord
                         DataStructures.DFA
                         Util.Util 
+                        DataStructures.Queue
 
     type:               exitcode-stdio-1.0
     hs-source-dirs:     tests/Algorithms
