@@ -1,5 +1,8 @@
 module Algorithms.SynchronisingWord (
     findShortestSynchronisingWord,
+    breadthFirstSearch,
+    getAllNeighbours,
+    getAllUnvisitedNeighbours,
     Queue(..),
 ) where
 
@@ -10,12 +13,15 @@ getAllNeighbours :: Eq a => DFA [a] -> State [a] -> [(Char, State [a])]
 getAllNeighbours dfa state = [(symbol, toState) | (fromState, symbol, toState) <- transitions dfa, fromState == state]
 
 getAllUnvisitedNeighbours :: Eq a => DFA [a] -> [State [a]] -> State [a] -> [(Char, State [a])]
-getAllUnvisitedNeighbours dfa visited state = [neighbour | neighbour <- getAllNeighbours dfa state, not (elem (snd neighbour) visited)]
+getAllUnvisitedNeighbours dfa visited state = 
+    [neighbour | neighbour <- getAllNeighbours dfa state, not (elem (snd neighbour) visited)]
 
 breadthFirstSearch :: DFA [Int] -> Queue (String, State [Int]) -> [State [Int]] -> Maybe String
 breadthFirstSearch dfa queue visited = case dequeue queue of
     Nothing -> Nothing
-    Just (front_el, queue) -> if elem front_state (endStates dfa) then Just (reverse front_word) else breadthFirstSearch dfa newQueue newVisited
+    Just (front_el, queue) -> if elem front_state (endStates dfa) 
+                            then Just (reverse front_word) 
+                            else breadthFirstSearch dfa newQueue newVisited
         where
             front_state = snd front_el
             front_word = fst front_el

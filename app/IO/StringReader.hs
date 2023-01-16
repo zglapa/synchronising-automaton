@@ -14,12 +14,16 @@ import DataStructures.DFA
 -- Split string by spaces
 splitBySpaces :: String -> [String]
 splitBySpaces [] = []
-splitBySpaces str = (takeWhile (/= ' ') str) : splitBySpaces (dropWhile (== ' ') (dropWhile (/= ' ') str))
+splitBySpaces str = case (dropWhile (== ' ') str) of
+    [] -> []
+    _ -> (takeWhile (/= ' ') str) : splitBySpaces (dropWhile (== ' ') (dropWhile (/= ' ') str))
 
 -- Split string by commas
 splitByCommas :: String -> [String]
 splitByCommas [] = []
-splitByCommas str = (takeWhile (/= ',') str) : splitByCommas (dropWhile (== ',') (dropWhile (/= ',') str))
+splitByCommas str = case (dropWhile (== ',') str) of
+    [] -> []
+    _ -> (takeWhile (/= ',') str) : splitByCommas (dropWhile (== ',') (dropWhile (/= ',') str))
 
 -- Convert string to state type
 stringToState :: String -> State Int
@@ -35,6 +39,7 @@ readAlphabet str = map (\x -> head x) (splitBySpaces str)
 
 -- Read transition from string
 readTransition :: String -> [(State Int, Char, State Int)]
+readTransition [] = []
 readTransition str = map (\[x, y, z] -> (stringToState x, head y, stringToState z)) [(splitBySpaces str)]
 
 -- Read start state from string

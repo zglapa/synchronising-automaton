@@ -6,7 +6,7 @@ module DataStructures.Queue (
     enqueueList
 ) where
 
-data Queue a = Queue [a] [a]
+data Queue a = Queue [a] [a] deriving (Show, Eq)
 
 enqueue :: a -> Queue a -> Queue a
 enqueue x (Queue l1 l2) = Queue l1 (x:l2)
