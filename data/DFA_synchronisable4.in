@@ -1,0 +1,17 @@
+-- DFA synchronisable by BABA
+0 1 2 3 4
+A B
+--
+0 B 2
+0 A 1
+1 B 3
+1 A 4
+2 B 0
+2 A 4
+3 B 2
+3 A 1
+4 B 0
+4 A 3
+--
+0
+4
