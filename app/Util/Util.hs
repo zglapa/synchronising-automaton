@@ -10,10 +10,7 @@ printStringAsAList (x:xs) = "[" ++ (foldl (\a b -> a ++ ", " ++ [b]) [x] xs) ++ 
 
 quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
-quicksort (x:xs) = 
-    let smallerSorted = quicksort [a | a <- xs, a <= x]
-        biggerSorted = quicksort [a | a <- xs, a > x]
-    in  smallerSorted ++ [x] ++ biggerSorted
+quicksort (x:xs) = quicksort [a | a <- xs, a <= x] ++ [x] ++ quicksort [a | a <- xs, a > x]
 
 uniqueSorted :: (Eq a, Ord a) => [a] -> [a]
 uniqueSorted [] = []
